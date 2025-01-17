@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Resin Art</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .gallery-item {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .gallery-item .description {
+            padding: 15px;
+            text-align: center;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Resin Art Gallery</h1>
+        <p>Explore unique and handcrafted resin art pieces.</p>
+    </header>
+
+    <main>
+        <section class="gallery">
+            <div class="gallery-item">
+                <img src="art1.jpg" alt="Resin Art Piece 1">
+                <div class="description">Abstract Ocean Scene</div>
+            </div>
+            <div class="gallery-item">
+                <img src="art2.jpg" alt="Resin Art Piece 2">
+                <div class="description">Floral Embedded Coaster</div>
+            </div>
+            <div class="gallery-item">
+                <img src="art3.jpg" alt="Resin Art Piece 3">
+                <div class="description">Geode-Inspired Wall Art</div>
+            </div>
+            <!-- Add more gallery items as needed -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 My Resin Art | Designed by [Your Name]</p>
+    </footer>
+</body>
+</html>
