@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Resin Art</title>
     <style>
+    
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -98,20 +99,23 @@
         }
         .whatsapp-float {
             position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
             width: 60px;
             height: 60px;
-            bottom: 40px;
-            right: 40px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 3px #999;
-            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+            font-size: 16px;
         }
-        .whatsapp-float i {
-            margin-top: 16px;
+        .whatsapp-float p {
+            margin: 0;
+            text-align: center;
         }
     
     </style>
@@ -170,9 +174,8 @@
 <!--     <a href="https://wa.me/+918770950380?text=Hi%20Neha,%20I'm%20looking%20for%20resin%20art." class="whatsapp-float" target="_blank">
         <i class="fa fa-whatsapp"></i>
     </a> -->
-    <a href="https://wa.me/+918770950380?text=Hi%20Neha,%20I'm%20looking%20for%20resin%20art." class="whatsapp-float" target="_blank">
-        <img src="images/whatsapp.png" alt="WhatsApp">
-    </a>
+   
+    
 
     <!-- FontAwesome for WhatsApp icon -->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
@@ -180,6 +183,9 @@
     <footer>
         <p>&copy; 2025 My Resin Art | Designed by [Your Name]</p>
     </footer>
+     <a href="https://wa.me/+918770950380?text=Hi%20Neha,%20I'm%20looking%20for%20resin%20art." class="whatsapp-float" target="_blank">
+        <p>Chat</p>
+    </a>
 
     
 </body>
