@@ -5,18 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Resin Art</title>
     <style>
-    body {
-            font-family: Arial, sans-serif;
+        body {
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
+            background: linear-gradient(135deg, #121212, #1f1f1f);
+            color: #f5f5f5;
         }
         header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
+            background: #202020;
             text-align: center;
+            padding: 20px;
+            color: #f5f5f5;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        header p {
+            font-size: 1rem;
+        }
+        .slider {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        .slider-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slider-images img {
+            width: 100%;
+            flex-shrink: 0;
+        }
+        .slider-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .slider-buttons button {
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: #f5f5f5;
+            font-size: 1.5rem;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+        .slider-buttons button:hover {
+            background: rgba(0, 0, 0, 0.8);
         }
         .gallery {
             display: grid;
@@ -25,11 +71,16 @@
             padding: 20px;
         }
         .gallery-item {
-            background-color: white;
-            border: 1px solid #ddd;
-            border-radius: 8px;
+            background: #282828;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transform: scale(1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
         }
         .gallery-item img {
             width: 100%;
@@ -39,21 +90,25 @@
         .gallery-item .description {
             padding: 15px;
             text-align: center;
+            font-size: 1.2rem;
         }
         footer {
             text-align: center;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+            padding: 20px;
+            background: #202020;
+            color: #f5f5f5;
+            position: relative;
+        }
+        footer .social-links a {
+            margin: 0 10px;
+            color: #f5f5f5;
+            font-size: 1.5rem;
         }
         .whatsapp-float {
             position: fixed;
-            bottom: 95px; /* Adjusted to be above the footer */
+            bottom: 100px;
             right: 20px;
-            background-color: #4CAF50;
+            background: #25D366;
             color: white;
             border-radius: 50%;
             width: 60px;
@@ -61,27 +116,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            font-size: 1.5rem;
             text-decoration: none;
-            font-size: 16px;
         }
-        .whatsapp-float p {
-            margin: 0;
-            text-align: center;
-        }
-        .social-links {
-            margin-top: 10px;
-        }
-        .social-links a {
-            margin: 0 10px;
-            color: white;
-            text-decoration: none;
-            font-size: 20px;
-        }
-    
     </style>
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -90,51 +131,83 @@
     </header>
 
     <main>
+        <section class="slider">
+            <div class="slider-images" id="sliderImages">
+                <img src="https://images.squarespace-cdn.com/content/v1/60f960aac2eb604dcfb280fa/1718445413051-SDA2JHYM8I18MOFCMMH0/ocean-art1.jpg" alt="Resin Art Piece 1">
+                <img src="https://images.squarespace-cdn.com/content/v1/60f960aac2eb604dcfb280fa/1718445413051-SDA2JHYM8I18MOFCMMH0/ocean-art1.jpg" alt="Resin Art Piece 2">
+                <img src="https://images.squarespace-cdn.com/content/v1/60f960aac2eb604dcfb280fa/1718445413051-SDA2JHYM8I18MOFCMMH0/ocean-art1.jpg" alt="Resin Art Piece 3">
+            </div>
+            <div class="slider-buttons">
+                <button onclick="prevSlide()">&#10094;</button>
+                <button onclick="nextSlide()">&#10095;</button>
+            </div>
+        </section>
+
         <section class="gallery">
             <div class="gallery-item">
                 <img src="https://images.squarespace-cdn.com/content/v1/60f960aac2eb604dcfb280fa/1718445413051-SDA2JHYM8I18MOFCMMH0/ocean-art1.jpg" alt="Resin Art Piece 1">
                 <div class="description">Abstract Ocean Scene</div>
             </div>
+            <!-- Repeat gallery-item for more artworks -->
+        </section>
+        <section class="gallery">
             <div class="gallery-item">
-                <img src="https://images.squarespace-cdn.com/content/v1/60f960aac2eb604dcfb280fa/1718445413051-SDA2JHYM8I18MOFCMMH0/ocean-art1.jpg" alt="Resin Art Piece 2">
-                <div class="description">Floral Embedded Coaster</div>
+                <img src="https://images.squarespace-cdn.com/content/v1/60f960aac2eb604dcfb280fa/1718445413051-SDA2JHYM8I18MOFCMMH0/ocean-art1.jpg" alt="Resin Art Piece 1">
+                <div class="description">Abstract Ocean Scene</div>
             </div>
+            <!-- Repeat gallery-item for more artworks -->
+        </section><section class="gallery">
             <div class="gallery-item">
-                <img src="https://images.squarespace-cdn.com/content/v1/60f960aac2eb604dcfb280fa/1718445413051-SDA2JHYM8I18MOFCMMH0/ocean-art1.jpg" alt="Resin Art Piece 3">
-                <div class="description">Geode-Inspired Wall Art</div>
+                <img src="https://images.squarespace-cdn.com/content/v1/60f960aac2eb604dcfb280fa/1718445413051-SDA2JHYM8I18MOFCMMH0/ocean-art1.jpg" alt="Resin Art Piece 1">
+                <div class="description">Abstract Ocean Scene</div>
             </div>
+            <!-- Repeat gallery-item for more artworks -->
+        </section>
+        <section class="gallery">
             <div class="gallery-item">
-                <img src="https://images.squarespace-cdn.com/content/v1/60f960aac2eb604dcfb280fa/1718445413051-SDA2JHYM8I18MOFCMMH0/ocean-art1.jpg" alt="Resin Art Piece 4">
-                <div class="description">River Table</div>
+                <img src="https://images.squarespace-cdn.com/content/v1/60f960aac2eb604dcfb280fa/1718445413051-SDA2JHYM8I18MOFCMMH0/ocean-art1.jpg" alt="Resin Art Piece 1">
+                <div class="description">Abstract Ocean Scene</div>
             </div>
+            <!-- Repeat gallery-item for more artworks -->
+        </section>
+        <section class="gallery">
             <div class="gallery-item">
-                <img src="https://images.squarespace-cdn.com/content/v1/60f960aac2eb604dcfb280fa/1718445413051-SDA2JHYM8I18MOFCMMH0/ocean-art1.jpg" alt="Resin Art Piece 5">
-                <div class="description">Galaxy-Themed Coaster</div>
+                <img src="https://images.squarespace-cdn.com/content/v1/60f960aac2eb604dcfb280fa/1718445413051-SDA2JHYM8I18MOFCMMH0/ocean-art1.jpg" alt="Resin Art Piece 1">
+                <div class="description">Abstract Ocean Scene</div>
             </div>
+            <!-- Repeat gallery-item for more artworks -->
+        </section><section class="gallery">
             <div class="gallery-item">
-                <img src="https://images.squarespace-cdn.com/content/v1/60f960aac2eb604dcfb280fa/1718445413051-SDA2JHYM8I18MOFCMMH0/ocean-art1.jpg" alt="Resin Art Piece 6">
-                <div class="description">Custom Jewelry Box</div>
+                <img src="https://images.squarespace-cdn.com/content/v1/60f960aac2eb604dcfb280fa/1718445413051-SDA2JHYM8I18MOFCMMH0/ocean-art1.jpg" alt="Resin Art Piece 1">
+                <div class="description">Abstract Ocean Scene</div>
             </div>
+            <!-- Repeat gallery-item for more artworks -->
+        </section>
+        <section class="gallery">
             <div class="gallery-item">
-                <img src="https://images.squarespace-cdn.com/content/v1/60f960aac2eb604dcfb280fa/1718445413051-SDA2JHYM8I18MOFCMMH0/ocean-art1.jpg" alt="Resin Art Piece 7">
-                <div class="description">Beach Scene Clock</div>
+                <img src="https://images.squarespace-cdn.com/content/v1/60f960aac2eb604dcfb280fa/1718445413051-SDA2JHYM8I18MOFCMMH0/ocean-art1.jpg" alt="Resin Art Piece 1">
+                <div class="description">Abstract Ocean Scene</div>
             </div>
+            <!-- Repeat gallery-item for more artworks -->
+        </section>
+        <section class="gallery">
             <div class="gallery-item">
-                <img src="https://images.squarespace-cdn.com/content/v1/60f960aac2eb604dcfb280fa/1718445413051-SDA2JHYM8I18MOFCMMH0/ocean-art1.jpg" alt="Resin Art Piece 8">
-                <div class="description">Resin Tray with Gold Accents</div>
+                <img src="https://images.squarespace-cdn.com/content/v1/60f960aac2eb604dcfb280fa/1718445413051-SDA2JHYM8I18MOFCMMH0/ocean-art1.jpg" alt="Resin Art Piece 1">
+                <div class="description">Abstract Ocean Scene</div>
             </div>
+            <!-- Repeat gallery-item for more artworks -->
+        </section>
+        <section class="gallery">
             <div class="gallery-item">
-                <img src="https://images.squarespace-cdn.com/content/v1/60f960aac2eb604dcfb280fa/1718445413051-SDA2JHYM8I18MOFCMMH0/ocean-art1.jpg" alt="Resin Art Piece 9">
-                <div class="description">Nature-Inspired Coaster Set</div>
+                <img src="https://images.squarespace-cdn.com/content/v1/60f960aac2eb604dcfb280fa/1718445413051-SDA2JHYM8I18MOFCMMH0/ocean-art1.jpg" alt="Resin Art Piece 1">
+                <div class="description">Abstract Ocean Scene</div>
             </div>
-            <div class="gallery-item">
-                <img src="https://images.squarespace-cdn.com/content/v1/60f960aac2eb604dcfb280fa/1718445413051-SDA2JHYM8I18MOFCMMH0/ocean-art1.jpg" alt="Resin Art Piece 10">
-                <div class="description">Minimalist Pendant</div>
-            </div>
+            <!-- Repeat gallery-item for more artworks -->
         </section>
     </main>
+
     <a href="https://wa.me/+918770950380?text=Hi%20Neha,%20I'm%20looking%20for%20resin%20art." class="whatsapp-float" target="_blank">
-        <p>Chat</p>
+        <i class="fab fa-whatsapp"></i>
     </a>
 
     <footer>
@@ -146,7 +219,33 @@
         </div>
     </footer>
 
-  
-    
+    <script>
+        let currentIndex = 0;
+        const sliderImages = document.getElementById('sliderImages');
+        const totalSlides = sliderImages.children.length;
+
+        function showSlide(index) {
+            if (index >= totalSlides) {
+                currentIndex = 0;
+            } else if (index < 0) {
+                currentIndex = totalSlides - 1;
+            } else {
+                currentIndex = index;
+            }
+
+            const offset = -currentIndex * 100;
+            sliderImages.style.transform = `translateX(${offset}%)`;
+        }
+
+        function nextSlide() {
+            showSlide(currentIndex + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentIndex - 1);
+        }
+
+        setInterval(nextSlide, 2000); // Automatically slide every 2 seconds
+    </script>
 </body>
 </html>
