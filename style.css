@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #1a0823;
+    color: white;
+}
+
+header {
+    padding: 20px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+}
+
+.logo span {
+    color: #b84aff;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+    color: #b84aff;
+}
+
+.product-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 10%;
+}
+
+.content {
+    max-width: 500px;
+}
+
+h1 {
+    font-size: 50px;
+    font-weight: 700;
+}
+
+h1 span {
+    color: #b84aff;
+}
+
+p {
+    font-size: 16px;
+    margin: 15px 0;
+    opacity: 0.8;
+}
+
+h2 {
+    font-size: 22px;
+    margin-top: 10px;
+}
+
+h2 span {
+    color: #b84aff;
+    font-weight: 700;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #b84aff;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #9000ff;
+}
+
+.image-container {
+    position: relative;
+}
+
+.image-container img {
+    max-width: 400px;
+    filter: drop-shadow(0px 0px 10px #b84aff);
+}
